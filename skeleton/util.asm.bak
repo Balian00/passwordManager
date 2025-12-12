@@ -1,8 +1,0 @@
-|; MOD(Ra, Rb, Rc)         Reg[Rc] <- Reg[Ra] % Reg[Rb]        (note: Rc should be a different register than Ra and Rb)
-.macro MOD(Ra, Rb, Rc) DIV(Ra, Rb, Rc) MUL(Rc, Rb, Rc) SUB(Ra, Rc, Rc)
-
-|; Function taht return the index in the 1D equivalent array of a 2D array element given its (x,y) coordinates
-.macro DOUBLE_ARR_OFFSET(x, y, result)
-    SHLC(y, 8, result)   |; result = y << 8 = 2^8 * y
-    ADD(result, x, result)                  |; result = result + x
-
