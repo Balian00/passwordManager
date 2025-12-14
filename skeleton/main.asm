@@ -371,7 +371,7 @@ main:
         .breakpoint
         |; R0 expected: 0
 
-    |; Updated expected R0 sequence: 0 1 1 1 0 1 0 0
+    |; Updated expected R0 sequence: 1 0 | 1 0 0 | 1 0 1 0 1 0 1 0 1 0 1 0 1 0 | 0 
 
     HALT()
 
