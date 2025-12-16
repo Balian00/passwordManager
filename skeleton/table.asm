@@ -23,8 +23,8 @@ initRandomTable:
     PUSH(R5)
 
     |; Loading parameters
-    LD(BP, -32, R0)                      |; R0 = nbSubTables (first arg)
-    LD(BP, -36, R1)                      |; R1 = subTableSize (second arg)
+    LD(BP, -12, R0)                      |; R0 = nbSubTables (first arg)
+    LD(BP, -16, R1)                      |; R1 = subTableSize (second arg)
     MUL(R0, R1, R1)                      |; R1 = total size
 
     CMOVE(0, R2)                         |; R2 = i = 0 (loop counter)

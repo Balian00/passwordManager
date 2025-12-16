@@ -15,8 +15,9 @@ hashPassword:
     LD(BP, -12, R1)                       |; R1 = passwordPointer
 
     |; Call recursive helper function
-    PUSH(R1)                              |; Push passwordPointer as argument
     PUSH(R31)                             |; recursionDepth = 0
+    PUSH(R1)                              |; Push passwordPointer as argument
+    
     CALL(hashPasswordRec, 2)              |; R0 = hashPasswordRec(passwordPointer, 0)
     POP(R1)
 
@@ -45,11 +46,12 @@ hashPasswordRec:
     PUSH(R5)
 
     |; Loading parameters
-    LD(BP, -32, R0)                      |; R0 = passwordPointer = adress of current character
-    LD(BP, -36, R1)                      |; R1 = recursionDepth
+    LD(BP, -12, R0)                      |; R0 = passwordPointer = address of current character
+    LD(BP, -16, R1)                      |; R1 = recursionDepth
+    
 
     |; Load current character
-    ANDC(R0, 0XFFFFFFFC, R2)             |; R2 = aligned address of current character (address & 0xFFFFFFFC)
+    ANDC(R0, 0xFFFFFFFC, R2)             |; R2 = aligned address of current character (address & 0xFFFFFFFC)
     LD(R2, 0, R2)                        |; R2 = word containing current character
     CMOVE(4, R4)
     MOD(R0, R4, R3)                      |; R3 = current_adress % 4 (use R4 as divisor, R3 as result)
