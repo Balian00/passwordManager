@@ -191,7 +191,7 @@ main:
         PUSH(R1)
         PUSH(R31)                        |; userId = 0
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
     
         |; verifyPassword(0, password_user1) -> expected 0 (wrong password for user 0)
@@ -199,7 +199,7 @@ main:
         PUSH(R2)
         PUSH(R31)                        |; userId = 0
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(1, password_user1) -> expected 1 (long password correct)
@@ -208,7 +208,7 @@ main:
         CMOVE(1, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(1, password_user0) -> expected 0 (wrong password for user 1)
@@ -217,7 +217,7 @@ main:
         CMOVE(1, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(1, password_user1_old) -> expected 0 (wrong password - "A")
@@ -226,7 +226,7 @@ main:
         CMOVE(1, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(2, password_user2) -> expected 1 (correct password)
@@ -235,7 +235,7 @@ main:
         CMOVE(2, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(2, password_user1) -> expected 0 (wrong password)
@@ -244,7 +244,7 @@ main:
         CMOVE(2, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(3, password_user3) -> expected 1
@@ -253,7 +253,7 @@ main:
         CMOVE(3, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(3, password_user1) -> expected 0
@@ -262,7 +262,7 @@ main:
         CMOVE(3, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(4, password_user4) -> expected 1
@@ -271,7 +271,7 @@ main:
         CMOVE(4, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(4, password_user1) -> expected 0
@@ -280,7 +280,7 @@ main:
         CMOVE(4, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(5, password_user5) -> expected 1
@@ -289,7 +289,7 @@ main:
         CMOVE(5, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(5, password_user1) -> expected 0
@@ -298,7 +298,7 @@ main:
         CMOVE(5, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(6, password_user6) -> expected 1
@@ -307,7 +307,7 @@ main:
         CMOVE(6, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(6, password_user1) -> expected 0
@@ -316,7 +316,7 @@ main:
         CMOVE(6, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(7, password_user7) -> expected 1
@@ -325,7 +325,7 @@ main:
         CMOVE(7, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(7, password_user1) -> expected 0
@@ -334,7 +334,7 @@ main:
         CMOVE(7, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; verifyPassword(8, password_user8) -> expected 1
@@ -343,7 +343,7 @@ main:
         CMOVE(8, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 1
 
         |; verifyPassword(8, password_user1) -> expected 0
@@ -352,7 +352,7 @@ main:
         CMOVE(8, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
         |; setPassword(10, password_bad) - out of bounds userId
@@ -368,7 +368,7 @@ main:
         CMOVE(10, R0)
         PUSH(R0)
         CALL(verifyPassword, 2)
-        .breakpoint
+        
         |; R0 expected: 0
 
     |; Updated expected R0 sequence: 1 0 | 1 0 0 | 1 0 1 0 1 0 1 0 1 0 1 0 1 0 | 0 
